@@ -1,7 +1,42 @@
 <!doctype html>
 <html lang="en">
   <head>
-</head>
-<body>
-    Not much going on here
-</body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/css/ol.css" type="text/css">
+    <style>
+      body {margin: 0; border: 0; padding: 0;}
+      .map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/build/ol.js"></script>
+    <script>
+        function getHeight(){
+            return document.documentElement.clientHeight
+        }
+    </script>
+    <title>apk TEST</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="map" class="map"></div>
+    <script type="text/javascript">
+      $('#map').css("height", $(document).height());
+
+      
+
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([-72.08409, 43.19053]),
+          zoom: 12
+        })
+      });
+    </script>
+  </body>
+</html>
